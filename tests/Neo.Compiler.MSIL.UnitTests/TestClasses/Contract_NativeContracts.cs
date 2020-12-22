@@ -8,29 +8,9 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
 {
     class Contract_NativeContracts : SmartContract.Framework.SmartContract
     {
-        public static string NEOName()
-        {
-            return NEO.Name;
-        }
-
-        public static string GASName()
-        {
-            return GAS.Name;
-        }
-
-        public static string OracleName()
-        {
-            return Oracle.Name;
-        }
-
         public static uint OracleMinimumResponseFee()
         {
             return Oracle.MinimumResponseFee;
-        }
-
-        public static string DesignationName()
-        {
-            return Designation.Name;
         }
 
         public static string NEOSymbol()
@@ -45,7 +25,7 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
 
         public static Cryptography.ECC.ECPoint[] getOracleNodes()
         {
-            return Designation.GetDesignatedByRole(DesignationRole.Oracle, 0);
+            return RoleManagement.GetDesignatedByRole(DesignationRole.Oracle, 0);
         }
 
         public static UInt160 NEOHash()
