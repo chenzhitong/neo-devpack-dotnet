@@ -27,7 +27,7 @@ namespace $safeprojectname$
             return Storage.Get("Hello");
         }
 
-        public static void _deploy(bool update)
+        public static void _deploy(object data, bool update)
         {
             if (update) return;
 
@@ -38,13 +38,13 @@ namespace $safeprojectname$
         public static void Update(byte[] nefFile, string manifest)
         {
             if (!IsOwner()) throw new Exception("No authorization.");
-            ManagementContract.Update(nefFile, manifest);
+            ContractManagement.Update(nefFile, manifest, null);
         }
 
         public static void Destroy()
         {
             if (!IsOwner()) throw new Exception("No authorization.");
-            ManagementContract.Destroy();
+            ContractManagement.Destroy();
         }
     }
 }
